@@ -97,3 +97,15 @@ bar
 | bar |
 | bar | baz | boo |  
 
+  If there are no rows in the body, no `<tbody>` is generated in HTML output  
+### Ex)  
+``` 
+| abc | def |
+| --- | --- |
+```  
+### Result :  
+| abc | def |
+| --- | --- |  
+
+  
+  
