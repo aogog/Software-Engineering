@@ -180,3 +180,90 @@ Visit www.commonmark.org/help for more information.
 ```  
 ### Result :  
 Visit www.commonmark.org/help for more information.  
+
+  We then apply extended autolink path validation as follows  
+  Trailing punctuation \(specifically, ?, !, ., ,, :, \*, \_, and \~) will not be considered part of the autolink, though they may be included in the interior of the link:  
+### Ex)  
+```
+Visit www.commonmark.org.
+
+Visit www.commonmark.org/a.b.
+```  
+### Result :  
+Visit www.commonmark.org.  
+
+Visit www.commonmark.org/a.b.  
+  
+  When an autolink ends in \), we scan the entire autolink for the total number of parentheses. If there is a greater number of closing parentheses than opening ones, we don’t consider the unmatched trailing parentheses part of the autolink, in order to facilitate including an autolink inside a parenthesis:  
+### Ex)  
+```
+www.google.com/search?q=Markup+(business)
+
+www.google.com/search?q=Markup+(business)))
+
+(www.google.com/search?q=Markup+(business))
+
+(www.google.com/search?q=Markup+(business)
+```  
+### Result :  
+www.google.com/search?q=Markup+(business)  
+
+www.google.com/search?q=Markup+(business)))  
+
+(www.google.com/search?q=Markup+(business))  
+
+(www.google.com/search?q=Markup+(business)  
+
+  This check is only done when the link ends in a closing parentheses ), so if the only parentheses are in the interior of the autolink, no special rules are applied:  
+### Ex)  
+```
+www.google.com/search?q=(business))+ok
+```  
+### Result :  
+www.google.com/search?q=(business))+ok  
+
+  If an autolink ends in a semicolon (;), we check to see if it appears to resemble an entity reference; if the preceding text is & followed by one or more alphanumeric characters. If so, it is excluded from the autolink  
+### Ex)  
+```
+www.google.com/search?q=commonmark&hl=en
+
+www.google.com/search?q=commonmark&hl;
+```  
+### Result :  
+www.google.com/search?q=commonmark&hl=en  
+
+www.google.com/search?q=commonmark&hl;  
+
+  \< immediately ends an autolink  
+### Ex)  
+```
+www.commonmark.org/he<lp
+```  
+### Result :  
+www.commonmark.org/he<lp  
+
+  An extended url autolink will be recognised when one of the schemes http://, or https://, followed by a valid domain, then zero or more non-space non-< characters according to extended autolink path validation  
+### Ex)  
+```
+http://commonmark.org
+
+(Visit https://encrypted.google.com/search?q=Markup+(business))
+```  
+### Result :  
+http://commonmark.org  
+
+(Visit https://encrypted.google.com/search?q=Markup+(business))  
+
+  An extended email autolink will be recognised when an email address is recognised within any text node. Email addresses are recognised according to the following rules  
+  - `One ore more characters which are alphanumeric, or ., -, _, or +.`  
+  - `An @ symbol.`  
+  - `One or more characters which are alphanumeric, or - or _, separated by periods (.). There must be at least one period. The last character must not be one of - or _.`  
+  The scheme mailto: will automatically be added to the generated link  
+### Ex)  
+```
+foo@bar.baz
+```  
+### Result :  
+foo@bar.baz  
+
+  
