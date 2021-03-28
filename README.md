@@ -123,7 +123,7 @@ bar
 ### Result :  
 - [ ] foo
 - [x] bar  
-
+#  
  Task lists can be arbitrarily nested
 ### Ex)  
 ```
