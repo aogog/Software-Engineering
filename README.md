@@ -26,3 +26,42 @@ bar | baz
 | abc | defghi |
 :-: | -----------:
 bar | baz  
+  Include a pipe in a cell’s content by escaping it, including inside other inline spans:  
+### Ex)  
+```
+| f\|oo  |
+| ------ |
+| b `\|` az |
+| b **\|** im |
+```  
+### Result :  
+| f\|oo  |
+| ------ |
+| b `\|` az |
+| b **\|** im |  
+  The table is broken at the first empty line, or beginning of another block-level structure:  
+### Ex)  
+```
+| abc | def |
+| --- | --- |
+| bar | baz |
+> bar
+
+| abc | def |
+| --- | --- |
+| bar | baz |
+bar
+
+bar
+```  
+### Result :  
+| abc | def |
+| --- | --- |
+| bar | baz |
+> bar  
+| abc | def |
+| --- | --- |
+| bar | baz |
+bar
+
+bar  
