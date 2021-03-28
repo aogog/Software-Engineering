@@ -164,5 +164,19 @@ new paragraph~~.
 # 4. Autolinks  
   GFM enables the autolink extension, where autolinks will be recognised in a greater number of conditions.  
   Autolinks can also be constructed without requiring the use of \< and to \> to delimit them, although they will be recognized under a smaller set of circumstances. All such recognized autolinks can only come at the beginning of a line, after whitespace, or any of the delimiting characters \*, \_, \~, and \(.  
-  An extended www autolink will be recognized when the text www. is found followed by a valid domain. A valid domain consists of segments of alphanumeric characters, underscores \(_) and hyphens \(-) separated by periods \(.). There must be at least one period, and no underscores may be present in the last two segments of the domain.  
+  An extended www autolink will be recognized when the text www. is found followed by a valid domain. A valid domain consists of segments of alphanumeric characters, underscores (\_) and hyphens (\-) separated by periods (\.). There must be at least one period, and no underscores may be present in the last two segments of the domain.  
   The scheme http will be inserted automatically  
+### Ex)  
+```
+www.commonmark.org
+```  
+### Result :  
+www.commonmark.org  
+
+  After a valid domain, zero or more non-space non\-< characters may follow  
+### Ex)  
+```
+Visit www.commonmark.org/help for more information.
+```  
+### Result :  
+Visit www.commonmark.org/help for more information.  
