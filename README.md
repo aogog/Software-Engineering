@@ -14,3 +14,15 @@
 | foo | bar |
 | --- | --- |
 | baz | bim |  
+
+  Cells in one column don’t need to match length, though it’s easier to read if they are. Likewise, use of leading and trailing pipes may be inconsistent:  
+### Ex)  
+```
+| abc | defghi |
+:-: | -----------:
+bar | baz
+```  
+### Result  :  
+| abc | defghi |
+:-: | -----------:
+bar | baz  
