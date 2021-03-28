@@ -82,6 +82,7 @@ bar
 | abc | def |
 | --- |
 | bar |  
+
   The remainder of the table’s rows may vary in the number of cells. If there are a number of cells fewer than the number of cells in the header row, empty cells are inserted. If there are greater, the excess is ignored  
 ### Ex)  
 ```
