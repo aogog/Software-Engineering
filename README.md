@@ -138,6 +138,23 @@ bar
   - [x] baz
 - [ ] bim  
 ***  
+# 3. Strikethrough  
+  GFM enables the strikethrough extension, where an additional emphasis type is available.  
+  Strikethrough text is any text wrapped in two tildes (~).  
+### Ex)  
+```
+~~Hi~~ Hello, world!
+```  
+### Result :  
+~~Hi~~ Hello, world!  
+  As with regular emphasis delimiters, a new paragraph will cause strikethrough parsing to cease.  
+### Ex)  
+```
+This ~~has a
 
-  
-  
+new paragraph~~.
+```  
+### Result :  
+This ~~has a
+
+new paragraph~~.  
