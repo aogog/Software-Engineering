@@ -42,25 +42,28 @@ bar | baz
 | b **\|** im |  
 
   The table is broken at the first empty line, or beginning of another block-level structure:  
-### Ex)  
+### Ex 1)  
 ```
 | abc | def |
 | --- | --- |
 | bar | baz |
 > bar
-
-| abc | def |
-| --- | --- |
-| bar | baz |
-bar
-
-bar
 ```  
 ### Result :  
 | abc | def |
 | --- | --- |
 | bar | baz |
 > bar  
+### Ex 2)  
+```
+| abc | def |
+| --- | --- |
+| bar | baz |
+bar
+
+bar  
+```  
+### Result :  
 | abc | def |
 | --- | --- |
 | bar | baz |
