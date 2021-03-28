@@ -124,7 +124,7 @@ bar
 - [ ] foo
 - [x] bar  
 
-  Task lists can be arbitrarily nested
+ Task lists can be arbitrarily nested
 ### Ex)  
 ```
 - [x] foo
