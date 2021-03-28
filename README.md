@@ -266,4 +266,61 @@ foo@bar.baz
 ### Result :  
 foo@bar.baz  
 
+  \+ can occur before the @, but not after.
+### Ex)  
+```
+hello@mail+xyz.example isn't valid, but hello+xyz@mail.example is.
+```  
+### Result :  
+hello@mail+xyz.example isn't valid, but hello+xyz@mail.example is.  
+
+  \., -, and _ can occur on both sides of the @, but only . may occur at the end of the email address, in which case it will not be considered part of the address  
+### Ex)  
+```
+a.b-c_d@a.b
+
+a.b-c_d@a.b.
+
+a.b-c_d@a.b-
+
+a.b-c_d@a.b_
+```  
+### Result :  
+a.b-c_d@a.b  
+
+a.b-c_d@a.b.  
+
+a.b-c_d@a.b-  
+
+a.b-c_d@a.b_  
+***  
+# 5. Disallowed Raw HTML  
+  GFM enables the tagfilter extension, where the following HTML tags will be filtered when rendering HTML output:  
+   - `<title>`  
+   - `<textarea>`  
+   - `<style>`  
+   - `<xmp>`  
+   - `<iframe>`  
+   - `<noembed>`  
+   - `<noframes>`  
+   - `<script>`  
+   - `<plaintext>`  
+  
+  Filtering is done by replacing the leading \< with the entity &lt;. These tags are chosen in particular as they change how HTML is interpreted in a way unique to them (i.e. nested HTML is interpreted differently), and this is usually undesireable in the context of other rendered Markdown content.  
+  All other HTML tags are left untouched.  
+### Ex)  
+```
+<strong> <title> <style> <em>
+
+<blockquote>
+  <xmp> is disallowed.  <XMP> is also disallowed.
+</blockquote>
+```  
+### Result :  
+<strong> <title> <style> <em>  
+  
+<blockquote>  
+  <xmp> is disallowed.  <XMP> is also disallowed.  
+</blockquote>  
+***
   
