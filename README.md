@@ -70,3 +70,29 @@ bar
 bar
 
 bar  
+
+  The header row must match the delimiter row in the number of cells. If not, a table will not be recognized  
+### Ex)  
+```
+| abc | def |
+| --- |
+| bar |
+```  
+### Result :  
+| abc | def |
+| --- |
+| bar |  
+  The remainder of the table’s rows may vary in the number of cells. If there are a number of cells fewer than the number of cells in the header row, empty cells are inserted. If there are greater, the excess is ignored  
+### Ex)  
+```
+| abc | def |
+| --- | --- |
+| bar |
+| bar | baz | boo |
+```  
+### Result :  
+| abc | def |
+| --- | --- |
+| bar |
+| bar | baz | boo |  
+
