@@ -26,6 +26,7 @@ bar | baz
 | abc | defghi |
 :-: | -----------:
 bar | baz  
+
   Include a pipe in a cell’s content by escaping it, including inside other inline spans:  
 ### Ex)  
 ```
@@ -39,6 +40,7 @@ bar | baz
 | ------ |
 | b `\|` az |
 | b **\|** im |  
+
   The table is broken at the first empty line, or beginning of another block-level structure:  
 ### Ex)  
 ```
