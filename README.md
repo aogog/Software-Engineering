@@ -1,3 +1,11 @@
+# Order  
+- 1. Tables  
+- 2. Task list items  
+- 3. Strikethrough  
+- 4. Autolinks  
+- 5. Disallowed Raw HTML  
+***  
+
 # Extended Syntax  
 ## 1. Tables  
   GFM enables the table extension, where an additional leaf block type is available.  
